@@ -1,0 +1,53 @@
+
+
+Action
+
+y@m:~$ su  
+Password: 
+su: Authentication failure
+y@m:~$ 
+
+Results 
+2023-08-17T20:05:16.560429+01:00 m su: pam_unix(su:auth): authentication failure; logname=root uid=1000 euid=0 tty=/dev/pts/4 ruser=y rhost=  user=root
+2023-08-17T20:05:18.555380+01:00 m su[47600]: FAILED SU (to root) y on pts/4
+=======================
+=======================
+Action
+
+y@m:~$ sudo su
+┌──(root㉿m)-[/home/y]
+└─# 
+
+
+Results
+
+
+2023-08-17T20:06:49.381099+01:00 m su[48379]: (to root) root on pts/5
+2023-08-17T20:06:49.381844+01:00 m su[48379]: pam_unix(su:session): session opened for user root(uid=0) by y(uid=0)
+
+
+=======================
+=======================
+
+Action Cntl Z bez wpisywania hasla
+
+y@m:~$ sudo cat /data/mka/secret/lasstPass
+[sudo] password for y: 
+sudo: a password is required
+
+
+Results
+2023-08-17T20:44:35.576113+01:00 m sudo: pam_unix(sudo:auth): conversation failed
+2023-08-17T20:44:35.577619+01:00 m sudo: pam_unix(sudo:auth): auth could not identify password for [y
+
+
+
+=======================
+=======================
+
+
+
+
+
+=======================
+=======================
