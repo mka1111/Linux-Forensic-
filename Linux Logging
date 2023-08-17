@@ -44,7 +44,16 @@ Results
 
 =======================
 =======================
+Actions
 
+# ssh -l y 192.168.1.84 -i id_rsa
+Last login: Thu Aug 17 23:21:10 2023 from 192.168.1.84
+
+
+
+Results 
+
+2023-08-17T23:21:09.981875+01:00 m sshd[148357]: Accepted publickey for y from 192.168.1.84 port 34848 ssh2: RSA SHA256:gCAE1v79nq3AFEPcoJgv5FmeHxwIYdiraK1dPInyQKY
 
 
 
