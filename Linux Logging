@@ -56,7 +56,84 @@ Results
 2023-08-17T23:21:09.981875+01:00 m sshd[148357]: Accepted publickey for y from 192.168.1.84 port 34848 ssh2: RSA SHA256:gCAE1v79nq3AFEPcoJgv5FmeHxwIYdiraK1dPInyQKY
 
 
+From different machine
+
+mka@ubuntu:~$ ssh 192.168.184 -l yy -i k
+^C
+mka@ubuntu:~$ ssh 192.168.1.84 -l yy -i k
+The authenticity of host '192.168.1.84 (192.168.1.84)' can't be established.
+ECDSA key fingerprint is SHA256:nBkLz8MmWmeGEiKw4iramVRibUProFuUuWRunrm/7Uk.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.84' (ECDSA) to the list of known hosts.
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0664 for 'k' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "k": bad permissions
+yy@192.168.1.84's password: 
+Permission denied, please try again.
+yy@192.168.1.84's password: 
+
+
+
+
+
+2023-08-18T08:53:19.460497+01:00 m sshd[9816]: error: Could not get shadow information for NOUSER
+2023-08-18T08:53:19.478590+01:00 m sshd[9816]: Failed password for invalid user yy from 192.168.1.105 port 54842 ssh2
+2023-08-18T08:53:23.289305+01:00 m sshd[9816]: Connection closed by invalid user yy 192.168.1.105 port 54842 [preauth]
+
 
 
 =======================
 =======================
+
+For good user from different device 
+
+mka@ubuntu:~$ ssh 192.168.1.84 -l y -i k
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Permissions 0664 for 'k' are too open.
+It is required that your private key files are NOT accessible by others.
+This private key will be ignored.
+Load key "k": bad permissions
+y@192.168.1.84's password: 
+Permission denied, please try again.
+y@192.168.1.84's password: 
+Permission denied, please try again.
+y@192.168.1.84's password: 
+Permission denied (publickey,password).
+
+
+
+
+
+
+18T08:55:01.964475+01:00 m CRON[10756]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+2023-08-18T08:55:01.967813+01:00 m CRON[10756]: pam_unix(cron:session): session closed for user root
+2023-08-18T08:56:04.718173+01:00 m sshd[11113]: Failed password for y from 192.168.1.105 port 54846 ssh2
+2023-08-18T08:56:06.005994+01:00 m sshd[11113]: Failed password for y from 192.168.1.105 port 54846 ssh2
+2023-08-18T08:56:07.390103+01:00 m sshd[11113]: Failed password for y from 192.168.1.105 port 54846 ssh2
+2023-08-18T08:56:07.392941+01:00 m sshd[11113]: Connection closed by authenticating user y 192.168.1.105 port 54846 [preauth]
+
+
+
+Good conection via -key from different device
+
+
+mka@ubuntu:~$ ssh 192.168.1.84 -l y -i k
+Last login: Fri Aug 18 08:58:42 2023 from 192.168.1.105
+y@m:~$ 
+
+
+
+
+2023-08-18T08:58:49.781401+01:00 m sshd[12579]: Disconnected from user y 192.168.1.105 port 54850
+2023-08-18T08:59:05.350304+01:00 m sshd[12780]: Accepted publickey for y from 192.168.1.105 port 54852 ssh2: RSA SHA256:gCAE1v79nq3AFEPcoJgv5FmeHxwIYdiraK1dPInyQKY
+
+
+
+
+
